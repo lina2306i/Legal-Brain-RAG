@@ -1,24 +1,33 @@
 # Legal Brain RAG
 
-**Legal Brain RAG** est un projet orienté vers l’analyse et la compréhension de documents juridiques grâce à une approche de **RAG (Retrieval-Augmented Generation)**.
+**Legal Brain RAG** explore l’analyse et la compréhension de documents juridiques à l’aide de l’intelligence artificielle et d’une approche **RAG (Retrieval-Augmented Generation)**.
 
-Ce dépôt public présente l’écosystème du projet. Les composants techniques et les données de travail sont conservés dans les dépôts associés.
+Ce dépôt public rassemble une présentation du projet, des documents de stage et des visuels. Les dépôts de code associés sont distincts et ont des périmètres différents.
 
 ## Aperçu visuel
 
 ### Vision globale de la plateforme
 
-![Vision globale de Legal Brain et Hannibal au sein de la plateforme](https://github.com/lina2306i/Legal-Brain-RAG/blob/main/Fig.%201.2%20%E2%80%94%20Vision%20globale%20___%20Legal%20Brain%20et%20Hannibal%20%20au%20sein%20de%20la%20plateforme.jpg?raw=true)
+![Vision globale de Legal Brain et Hannibal au sein de la plateforme](assets/Fig.%201.2%20%E2%80%94%20Vision%20globale%20___%20Legal%20Brain%20et%20Hannibal%20%20au%20sein%20de%20la%20plateforme.jpg)
 
 ### Extraction et préparation des données
 
 | Flux d’extraction des contrats | Préparation des datasets Hannibal V2 |
 |---|---|
-| ![Flux d’extraction des contrats](https://github.com/lina2306i/Legal-Brain-RAG/blob/main/Fig.%203.1%20%E2%80%94%20Flux%20d'extraction%20des%20contrats%20(PDF,%20DOCX,%20DOC).jpg?raw=true) | ![Chaîne de préparation des datasets Hannibal V2](https://github.com/lina2306i/Legal-Brain-RAG/blob/main/Fig.%203.2%20%E2%80%94%20Cha%C3%AEne%20de%20pr%C3%A9paration%20des%20datasets%20Hannibal%20V2.jpg?raw=true) |
+| ![Flux d’extraction des contrats](assets/Fig.%203.1%20%E2%80%94%20Flux%20d'extraction%20des%20contrats%20(PDF,%20DOCX,%20DOC).jpg) | ![Chaîne de préparation des datasets Hannibal V2](assets/Fig.%203.2%20%E2%80%94%20Cha%C3%AEne%20de%20pr%C3%A9paration%20des%20datasets%20Hannibal%20V2.jpg) |
+
+### Console du pipeline
+
+![Capture de la console Legal Brain](assets/fig_4_1_console.png)
 
 ## Organisation des ressources
 
-Les dossiers `docs/`, `presentation/`, `rapport/` et `assets/` sont créés. Les documents et médias existants sont encore à la racine du dépôt ; les liens ci-dessous pointent donc vers leur emplacement actuel.
+- [`docs/`](docs/) — documentation et guides
+- [`presentation/`](presentation/) — supports et scripts de présentation
+- [`rapport/`](rapport/) — rapport et documents de stage
+- [`assets/`](assets/) — schémas, captures et logos
+
+> Les dossiers sont créés, mais les documents de rapport et de présentation sont encore à la racine. Les liens ci-dessous reflètent leurs chemins actuels dans le dépôt.
 
 ### Documents et guides
 
@@ -38,32 +47,33 @@ Les dossiers `docs/`, `presentation/`, `rapport/` et `assets/` sont créés. Les
 - [Script oral](Script_oral_soutenance.md)
 - [Discours de soutenance — Pipeline E-Tafakna 2026](Speech%20de%20soutenance%20%C2%B7%20Pipeline%20E-Tafakna%202026.md)
 
-### Images et schémas
+### Autres visuels dans `assets/`
 
-- [Schéma de complémentarité Legal Brain / Hannibal](Fig.%203.3%20%E2%80%94%20Compl%C3%A9mentarit%C3%A9%20Legal%20Brain___Hannibal%20%201.jpg)
-- [Capture de la console](fig_4_1_console.png)
-- [Logo iTeam](logo-iteam.png)
-- [Logo E-Tafakna](logo_etafakna.png)
+- [Schéma de complémentarité Legal Brain / Hannibal](assets/Fig.%203.3%20%E2%80%94%20Compl%C3%A9mentarit%C3%A9%20Legal%20Brain___Hannibal%20%201.jpg)
+- [Logo iTeam](assets/logo-iteam.png)
+- [Logo E-Tafakna](assets/logo_etafakna.png)
+- [Visuel](assets/6327d905-95c1-4839-9ad7-f074008ec425.jpg)
+- [Visuel](assets/f8b83d46-30ee-4ff4-9059-e46334917cdd.jpg)
 
 ## Écosystème et périmètre des dépôts
 
 ### `hannibal-finetunning--V2` — Préparation des données
 
-> Dépôt privé : [`hannibal-finetunning--V2`](https://github.com/lina2306i/hannibal-finetunning--V2)
+> Dépôt privé : [`lina2306i/hannibal-finetunning--V2`](https://github.com/lina2306i/hannibal-finetunning--V2)
 
-Ce dépôt regroupe des outils de nettoyage et d’analyse de contrats, de construction et de rééquilibrage de jeux de données, de génération de données synthétiques et de contrôle qualité pour le travail autour du fine-tuning.
+Ce dépôt contient notamment des outils de nettoyage et d’analyse de contrats, de préparation et de rééquilibrage de jeux de données, de génération de données synthétiques et de contrôle qualité liés au travail de fine-tuning.
 
-### `Hack-ai-Legal_Brain` — Contribution au projet Legal Brain
+### `Hack-ai-Legal_Brain` — Partie du projet Legal Brain
 
-> Dépôt privé : [`Hack-ai-Legal_Brain`](https://github.com/lina2306i/Hack-ai-Legal_Brain)
+> Dépôt privé : [`lina2306i/Hack-ai-Legal_Brain`](https://github.com/lina2306i/Hack-ai-Legal_Brain)
 
-Ce dépôt correspond à la partie du projet Legal Brain portée dans le cadre de ce travail. Il ne faut pas le présenter comme l’unique dépôt contenant l’intégralité du produit ou de tous les composants développés par l’équipe.
+Ce dépôt correspond à une partie du travail sur Legal Brain. Il ne représente pas à lui seul l’ensemble du produit ni tous les composants développés par l’équipe.
 
-### Dépôt associé de référence : `seifshub/legal-pipeline`
+### `seifshub/legal-pipeline` — Dépôt associé couvrant plusieurs composants
 
-> Dépôt privé : [`seifshub/legal-pipeline`](https://github.com/seifshub/legal-pipeline) est un dépôt associé au pipeline Legal Brain et comparable à `Hack-ai-Legal_Brain`. Son arborescence couvre un ensemble plus large de composants du projet : adaptateurs de sources juridiques, pipeline d’ingestion et de traitement, OCR, enrichissement, stockage, recherche/RAG, API, console frontend, tests et déploiement.
+[`seifshub/legal-pipeline`](https://github.com/seifshub/legal-pipeline) est un dépôt associé et comparable à `Hack-ai-Legal_Brain`, avec un périmètre plus large. Son arborescence comprend notamment des adaptateurs de sources juridiques, des composants d’ingestion et de traitement, l’OCR, l’enrichissement, le stockage, la recherche/RAG, une API, une interface frontend, des tests et des éléments de déploiement.
 
-Il s’agit donc d’une base de code couvrant plusieurs parties du projet, et non uniquement les contributions personnelles présentées ici. Les dépôts sont distincts ; ce README ne revendique pas la propriété ni l’ensemble des développements du dépôt `seifshub/legal-pipeline`.
+Les dépôts sont distincts. Cette présentation distingue le dépôt plus large `seifshub/legal-pipeline` de la partie représentée par `Hack-ai-Legal_Brain` et ne revendique pas l’ensemble des développements du premier.
 
 ## Vue d’ensemble
 
@@ -75,16 +85,15 @@ Sources et documents juridiques
         │
         └── Legal Brain / legal-pipeline
               ingestion • extraction • enrichissement • indexation
-              API • recherche/RAG • interface • tests et déploiement
+              API • recherche/RAG • interface • tests • déploiement
 ```
 
 ## Confidentialité et usage
 
-Les dépôts `hannibal-finetunning--V2` et `Hack-ai-Legal_Brain` sont privés. Les données juridiques, scripts internes, modèles et configurations ne sont donc pas publiés dans ce dépôt de présentation.
+Les dépôts `hannibal-finetunning--V2` et `Hack-ai-Legal_Brain` sont privés. Les données juridiques, scripts internes, modèles et configurations qui s’y trouvent ne sont pas publiés dans ce dépôt de présentation.
 
-> Le système est un outil d’assistance à la recherche et à l’analyse ; ses réponses doivent être vérifiées à partir des sources juridiques applicables.
+> Legal Brain est un outil d’assistance à la recherche et à l’analyse. Toute réponse doit être vérifiée à partir des sources juridiques applicables.
 
 ## Statut
 
-Projet de Stage d'été 2026  : Terminé le développement.
-chez : E-Tafakna
+Projet de stage E-Tafakna, été 2026.
