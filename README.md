@@ -2,7 +2,48 @@
 
 **Legal Brain RAG** est un projet orienté vers l’analyse et la compréhension de documents juridiques grâce à une approche de **RAG (Retrieval-Augmented Generation)**.
 
-Ce dépôt public sert de **page de présentation et d’architecture** du projet. Les deux dépôts associés sont privés afin de protéger les données, les scripts de préparation et les composants expérimentaux.
+Ce dépôt public présente l’écosystème du projet. Les composants techniques et les données de travail sont conservés dans les dépôts privés associés.
+
+## Aperçu visuel
+
+### Vision globale de la plateforme
+
+![Vision globale de Legal Brain et Hannibal au sein de la plateforme](https://github.com/lina2306i/Legal-Brain-RAG/blob/main/Fig.%201.2%20%E2%80%94%20Vision%20globale%20___%20Legal%20Brain%20et%20Hannibal%20%20au%20sein%20de%20la%20plateforme.jpg?raw=true)
+
+### Extraction et préparation des données
+
+| Flux d’extraction des contrats | Préparation des datasets Hannibal V2 |
+|---|---|
+| ![Flux d’extraction des contrats](https://github.com/lina2306i/Legal-Brain-RAG/blob/main/Fig.%203.1%20%E2%80%94%20Flux%20d'extraction%20des%20contrats%20(PDF,%20DOCX,%20DOC).jpg?raw=true) | ![Chaîne de préparation des datasets Hannibal V2](https://github.com/lina2306i/Legal-Brain-RAG/blob/main/Fig.%203.2%20%E2%80%94%20Cha%C3%AEne%20de%20pr%C3%A9paration%20des%20datasets%20Hannibal%20V2.jpg?raw=true) |
+
+## Organisation des ressources
+
+Les dossiers `docs/`, `presentation/`, `rapport/` et `assets/` sont créés. Les documents et médias existants sont encore à la racine du dépôt ; les déplacer réellement nécessite une opération de déplacement/suppression que l’outil d’écriture utilisé ici ne prend pas en charge.
+
+### Documents et guides
+
+- [Guide de démonstration terminal](DEMO_GUIDE_TERMINAL.md)
+- [Guide de démo](demo.md)
+- [Résumé exécutif du stage](04_resume_executif_stage.md)
+
+### Rapport
+
+- [Rapport de stage (PDF)](Rapport%20stage%202026--Fv3.pdf)
+- [Pipeline de stage (HTML)](Pipeline%20de%20stage%20%C2%B7%20E-Tafakna%202026%20-v4.html)
+
+### Présentation
+
+- [Présentation de soutenance (PDF)](Soutenance_ETafakna_v2.pdf)
+- [Présentation de soutenance (PowerPoint)](ai%20-%20Soutenance_ETafakna_v3.pptx)
+- [Script oral](Script_oral_soutenance.md)
+- [Discours de soutenance — Pipeline E-Tafakna 2026](Speech%20de%20soutenance%20%C2%B7%20Pipeline%20E-Tafakna%202026.md)
+
+### Images et schémas
+
+- [Schéma de complémentarité Legal Brain / Hannibal](Fig.%203.3%20%E2%80%94%20Compl%C3%A9mentarit%C3%A9%20Legal%20Brain___Hannibal%20%201.jpg)
+- [Capture de la console](fig_4_1_console.png)
+- [Logo iTeam](logo-iteam.png)
+- [Logo E-Tafakna](logo_etafakna.png)
 
 ## Écosystème du projet
 
@@ -10,72 +51,37 @@ Ce dépôt public sert de **page de présentation et d’architecture** du proje
 
 > Dépôt privé : [`hannibal-finetunning--V2`](https://github.com/lina2306i/hannibal-finetunning--V2)
 
-Ce dépôt constitue la base de **préparation des données** et du **fine-tuning** du modèle juridique.
-
-Il contient notamment :
-
-- le nettoyage et l’analyse de contrats juridiques ;
-- la construction et le rééquilibrage des jeux de données ;
-- la génération de données synthétiques et de jeux question-réponse ;
-- le contrôle qualité, l’étiquetage et la séparation des données ;
-- la génération de rapports et de sorties d’entraînement ;
-- les templates et scripts liés au traitement des documents.
-
-Il fournit ainsi les données structurées nécessaires pour améliorer les capacités du modèle sur des tâches juridiques.
+Ce dépôt constitue la base de préparation des données et du fine-tuning du modèle juridique. Il contient notamment des outils de nettoyage et d’analyse de contrats, de construction et rééquilibrage de jeux de données, de génération de données synthétiques et de contrôle qualité.
 
 ### `Hack-ai-Legal_Brain` — Application et orchestration
 
 > Dépôt privé : [`Hack-ai-Legal_Brain`](https://github.com/lina2306i/Hack-ai-Legal_Brain)
 
-Ce dépôt héberge l’environnement applicatif du projet **Legal Brain**, notamment la partie expérimentale et opérationnelle.
+Ce dépôt héberge l’environnement applicatif expérimental de Legal Brain : ingestion de documents, recherche sémantique, orchestration RAG et interface ou API.
 
-Il peut inclure :
-
-- l’ingestion de documents juridiques ;
-- la génération d’embeddings et l’indexation vectorielle ;
-- la recherche sémantique de passages pertinents ;
-- l’orchestration du RAG ;
-- l’interface utilisateur ou API ;
-- les composants d’évaluation et d’expérimentation.
-
-## Architecture envisagée
+## Architecture générale
 
 ```text
 Documents juridiques
         │
         ▼
-Dépôt privé : hannibal-finetunning--V2
-  nettoyage • datasets • fine-tuning
+ hannibal-finetunning--V2 (privé)
+ préparation des données • fine-tuning
         │
         ▼
-Modèle spécialisé
+ Hack-ai-Legal_Brain (privé)
+ ingestion • recherche • RAG • interface
         │
         ▼
-Dépôt privé : Hack-ai-Legal_Brain
-  ingestion • embeddings • recherche • RAG • interface
-        │
-        ▼
-Réponses contextualisées aux documents
+ Réponses contextualisées et fondées sur les sources
 ```
-
-## Fonctionnement général
-
-1. Les contrats et documents sources sont nettoyés et transformés en données d’entraînement.
-2. Les données sont analysées, contrôlées, étiquetées et réparties en ensembles d’entraînement.
-3. Un modèle spécialisé est affiné pour mieux comprendre le vocabulaire juridique.
-4. Les documents sont indexés sous forme de représentations vectorielles.
-5. Une requête utilisateur permet de retrouver les passages pertinents.
-6. Le modèle génère une réponse contextualisée à partir des sources récupérées.
 
 ## Confidentialité
 
-Les dépôts suivants sont privés :
+Les dépôts `hannibal-finetunning--V2` et `Hack-ai-Legal_Brain` sont privés. Les données juridiques, scripts internes, modèles et configurations ne sont donc pas publiés dans ce dépôt de présentation.
 
-- [`lina2306i/hannibal-finetunning--V2`](https://github.com/lina2306i/hannibal-finetunning--V2)
-- [`lina2306i/Hack-ai-Legal_Brain`](https://github.com/lina2306i/Hack-ai-Legal_Brain)
-
-Cette séparation permet de protéger les données juridiques, les scripts internes, les modèles, les configurations et les résultats expérimentaux. Seule la présentation publique de l’écosystème est disponible dans ce dépôt.
+> Le système est un outil d’assistance à la recherche et à l’analyse ; ses réponses doivent être vérifiées à partir des sources juridiques applicables.
 
 ## Statut
 
-Projet en développement. L’ensemble des composants techniques, données d’entraînement et résultats détaillés sont maintenus dans les dépôts privés associés.
+Projet en développement.
