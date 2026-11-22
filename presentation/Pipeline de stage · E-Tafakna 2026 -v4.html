@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pipeline de stage · E-Tafakna 2026 — Legal Brain & Hannibal  · Labiadh Lina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f7ff;--card:#fff;--ink:#1b2440;--mut:#606b8a;--line:#e4e9f5;--blue:#4f7cff;--vio:#8b6cff;--teal:#13b5c9;--grn:#1fb97f;--org:#ff9a3c;--pink:#ff6fa5;--red:#f0556a;
+--sh:0 6px 24px rgba(79,124,255,.09);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Plus Jakarta Sans',system-ui,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;overflow-x:hidden;
+background-image:radial-gradient(circle at 8% 0,#e3ebff 0,transparent 35%),radial-gradient(circle at 95% 20%,#f1e8ff 0,transparent 30%)}
+code,pre,.mono{font-family:'JetBrains Mono',Consolas,monospace}
+code{background:#eef2fd;color:#3b57c8;padding:1px 6px;border-radius:6px;font-size:.82em}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);display:flex;gap:4px;padding:8px 14px;overflow-x:auto;justify-content:center;scrollbar-width:none}
+nav a{color:var(--mut);text-decoration:none;font-size:.82rem;font-weight:600;padding:7px 13px;border-radius:999px;white-space:nowrap;transition:.2s}
+nav a:hover{background:#eef2ff;color:var(--blue)}nav a.on{background:var(--blue);color:#fff}
+.hero{text-align:center;padding:54px 20px 34px;max-width:1000px;margin:auto}
+.pill{display:inline-flex;gap:6px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:.78rem;font-weight:700;color:var(--blue);box-shadow:var(--sh)}
+.hero h1{font-size:clamp(1.8rem,4.5vw,2.9rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin:16px 0 10px}
+.hero h1 span{background:linear-gradient(90deg,var(--blue),var(--vio),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);max-width:720px;margin:auto}
+.meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px}
+.meta div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 12px;font-size:.78rem;color:var(--mut)}.meta b{color:var(--ink)}
+main{max-width:1200px;margin:auto;padding:0 18px 40px}
+section{padding:42px 0 8px}
+.eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--vio)}
+h2{font-size:1.65rem;font-weight:800;letter-spacing:-.02em;margin:4px 0 6px}
+.lead{color:var(--mut);max-width:780px;margin-bottom:22px;font-size:.95rem}
+h3{font-size:1rem;font-weight:700;margin:26px 0 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--sh)}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.g4{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.lift{transition:.25s}.lift:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(79,124,255,.16)}
+.stat{text-align:center;padding:18px 10px}.stat b{display:block;font-size:2rem;font-weight:800;line-height:1.1}.stat span{font-size:.74rem;color:var(--mut);font-weight:600}
+.quote{background:linear-gradient(135deg,#eaf0ff,#f3ebff);border-radius:20px;padding:22px 26px;font-size:1rem;border-left:5px solid var(--blue)}
+.quote small{display:block;margin-top:8px;color:var(--mut)}
+.lane{margin-bottom:22px}
+.lane-h{display:flex;align-items:center;gap:10px;font-weight:800;margin-bottom:14px}
+.lane-h i{font-style:normal;padding:4px 12px;border-radius:999px;color:#fff;font-size:.75rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(142px,1fr));gap:14px}
+.st{position:relative;background:#fff;border:1px solid var(--line);border-top:4px solid var(--c);border-radius:16px;padding:20px 12px 14px;text-align:center;box-shadow:var(--sh)}
+.st .n{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--c);color:#fff;width:24px;height:24px;border-radius:50%;font-size:.72rem;font-weight:800;display:grid;place-items:center;box-shadow:0 0 0 4px var(--bg)}
+.st .ic{font-size:1.7rem}.st b{display:block;font-size:.82rem;margin:4px 0 2px}.st p{font-size:.7rem;color:var(--mut);line-height:1.4}
+.tag{display:inline-block;font-size:.66rem;font-weight:700;padding:3px 10px;border-radius:999px;margin-top:8px}
+.done{background:#e3f8ee;color:#128a5a}.part{background:#fff1de;color:#c46a00}.demo{background:#e0f6fa;color:#0b8b9c}.todo{background:#eceff6;color:#6b7592}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.75rem;color:var(--mut)}
+.merge{text-align:center;margin:6px 0 0;font-weight:700;color:var(--vio);font-size:.9rem}
+.node{padding:18px}.node .top{display:flex;justify-content:space-between;align-items:center}
+.node .num{background:var(--c);color:#fff;border-radius:10px;padding:2px 10px;font-size:.72rem;font-weight:800}
+.node h4{margin:10px 0 4px;font-size:.95rem}.node p{font-size:.8rem;color:var(--mut)}
+.chipx{display:inline-block;background:#f1f4fb;border:1px solid var(--line);border-radius:8px;padding:2px 8px;font-size:.7rem;color:#3b57c8;margin:8px 6px 0 0;font-family:'JetBrains Mono',monospace}
+pre{background:#f3f6fd;border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:.74rem;overflow-x:auto;color:#2c3a66;line-height:1.7}
+pre .k{color:#8b3fe0}pre .s{color:#12865a}pre .c{color:#8a95b5;font-style:italic}pre .f{color:#d9730d}
+.flag{display:flex;gap:10px;align-items:center;font-size:.82rem;padding:10px 12px;background:#f7f9ff;border-radius:12px;border:1px solid var(--line)}.flag span{font-size:1.3rem}
+.btn{border:0;border-radius:12px;padding:10px 16px;font:700 .82rem inherit;font-family:inherit;cursor:pointer;color:#fff;background:var(--blue);transition:.2s}.btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(79,124,255,.35)}.btn.g{background:var(--grn)}.btn.o{background:#eef1f9;color:var(--mut)}.btn:disabled{opacity:.5}
+.term{background:#f3f6fd;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:.76rem/1.7 'JetBrains Mono',monospace;height:210px;overflow-y:auto;color:#2c3a66}
+.bar{height:9px;background:#e9eef9;border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--teal));border-radius:9px;transition:width .5s}
+.chat{display:flex;flex-direction:column;height:400px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:#fafbff}
+.m{max-width:88%;padding:10px 14px;border-radius:16px;font-size:.8rem}.mu{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:4px}.mb{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
+.cite{display:inline-block;background:#e3f8ee;color:#128a5a;border-radius:8px;padding:2px 9px;font:600 .7rem 'JetBrains Mono',monospace;margin:6px 6px 0 0;cursor:pointer}.cite:hover{background:#c9f0de}
+.qs{display:flex;gap:6px;padding:8px 10px;overflow-x:auto;border-top:1px solid var(--line)}.qs span{background:#eef2ff;color:var(--blue);border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:600;white-space:nowrap;cursor:pointer}
+.inp{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}.inp input{flex:1;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:.8rem inherit;font-family:inherit;outline:none}.inp input:focus{border-color:var(--blue)}
+.fun{border-radius:14px;padding:12px 16px;color:#fff;display:flex;justify-content:space-between;align-items:center;font-size:.85rem}.fun b{font-size:1.5rem}
+.loss{font-size:.74rem;color:#c93a50;background:#fff0f3;border-radius:10px;padding:6px 12px;margin:6px 0 6px 18px}
+table{width:100%;border-collapse:collapse;font-size:.8rem}th{text-align:left;color:var(--mut);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;padding:8px}td{padding:10px 8px;border-top:1px solid var(--line)}
+.dot{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:8px;color:#fff;font-weight:800;font-size:.75rem;margin-right:6px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.chips span{background:#f4f6fd;border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:.76rem;font-weight:600}
+.pr{margin-bottom:11px;font-size:.8rem}.pr div:first-child{display:flex;justify-content:space-between;margin-bottom:4px;font-weight:600}
+.gantt{display:grid;grid-template-columns:130px repeat(9,1fr);gap:6px 4px;font-size:.72rem;align-items:center;min-width:760px}
+.gantt .wk{text-align:center;color:var(--mut);font-weight:700}.gantt .rl{font-weight:700;color:var(--ink)}
+.gb{border-radius:10px;padding:7px 8px;color:#fff;font-weight:600;font-size:.68rem;line-height:1.3}
+.tl{display:grid;gap:10px}.tl div{display:flex;gap:10px;font-size:.78rem;color:var(--mut)}.tl b{color:var(--ink)}.tl i{flex:0 0 10px;height:10px;border-radius:50%;margin-top:6px;background:var(--grn)}
+.pp{display:flex;gap:14px;align-items:flex-start}.pp b.n{font-size:1.5rem;color:var(--c);line-height:1}
+.scroll{overflow-x:auto}
+.modal{position:fixed;inset:0;background:rgba(27,36,64,.45);display:none;place-items:center;z-index:99;padding:18px}.modal.on{display:grid}
+.mbox{background:#fff;border-radius:20px;max-width:640px;width:100%;max-height:85vh;overflow:auto;padding:22px}
+footer{text-align:center;color:var(--mut);font-size:.78rem;padding:30px 18px 40px}
+@media(max-width:600px){h2{font-size:1.35rem}}
+
+/* ── 2. ALIAS (anciennes variables) ── */
+:root{--blue-accent:var(--blue);--blue-pri:var(--blue);--green:var(--grn);--purple:var(--vio);--gold:#e69100;--orange:var(--org);--text-sec:var(--mut);--text-muted:#8a95b5;--border-color:var(--line)}
+/* ── 3. BLOCS IMPORTÉS (thème clair) ── */
+.badge{display:inline-block;background:#eef2ff;color:var(--blue);border-radius:999px;padding:3px 12px;font-weight:700}
+.sec-title{font-size:1.05rem;font-weight:700;margin-top:4px}.sec-sub{color:var(--mut);font-size:.88rem;margin-bottom:14px}
+.subhead,.section-head{margin:18px 0 14px}.section-head h2{font-size:1.15rem}.section-head p{color:var(--mut);font-size:.88rem}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:12px 0 22px}
+.metric{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;text-align:center;box-shadow:var(--sh)}
+.metric-val{font-size:1.9rem;font-weight:800;line-height:1.1}.metric-label{font-size:.74rem;color:var(--mut);font-weight:600;margin-top:4px}
+.card-header{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.card-title{font-weight:700;display:flex;gap:8px;align-items:center}.card-icon{font-size:1.5rem}.card-body{font-size:.8rem;color:var(--mut);margin-top:8px}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.card-tags .tag{margin:0;background:#eef2ff;color:var(--blue)}.card-tags .tag.g{background:#e3f8ee;color:#128a5a}.card-tags .tag.p{background:#f0eaff;color:var(--vio)}
+.status-ready,.status-rag{font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:999px;background:#e3f8ee;color:#128a5a}.status-rag{background:#e0f6fa;color:#0b8b9c}
+.flow-track{display:flex;gap:10px;overflow-x:auto;padding:14px 4px 18px;align-items:stretch}
+.flow-node{flex:0 0 230px;position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 16px 14px;box-shadow:var(--sh);transition:.25s}.flow-node:hover{transform:translateY(-4px);border-color:var(--blue)}
+.node-step-badge{position:absolute;top:-10px;left:14px;background:var(--blue);color:#fff;font-size:.66rem;font-weight:800;padding:2px 10px;border-radius:999px}
+.node-icon{font-size:1.7rem}.node-title{font-weight:700;font-size:.9rem;margin:4px 0}.node-desc{font-size:.76rem;color:var(--mut);margin-bottom:10px}
+.node-tech{background:#f1f4fb;border-radius:8px;padding:3px 8px;font:.68rem 'JetBrains Mono',monospace;color:#3b57c8;display:inline-block}.node-status{margin-top:10px;font-size:.7rem;font-weight:700;color:#128a5a}
+.flow-arrow{align-self:center;color:var(--blue);font-size:1.3rem}
+.rag-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}@media(max-width:900px){.rag-grid{grid-template-columns:1fr}}
+.rag-step-box{background:#fff;border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:0 16px 16px 0;padding:14px 18px;margin-bottom:12px;box-shadow:var(--sh)}
+.rag-step-box.purple{border-left-color:var(--vio)}.rag-step-box.gold{border-left-color:var(--org)}.rag-step-box.green{border-left-color:var(--grn)}
+.rag-step-title{display:flex;justify-content:space-between;gap:8px;font-weight:700;font-size:.9rem;margin-bottom:4px}.rag-step-desc{font-size:.78rem;color:var(--mut)}
+.flowbox{background:#f6f8fe;border:1px solid var(--line);border-radius:14px;padding:16px;font-size:.8rem;line-height:1.7}
+.outbox{background:#fff;border-left:4px solid var(--grn);border-radius:0 10px 10px 0;padding:8px 12px;margin-top:6px;font:.74rem 'JetBrains Mono',monospace}
+.code-viewer{background:#f3f6fd;border:1px solid var(--line);border-radius:14px;padding:14px;font:.74rem/1.6 'JetBrains Mono',monospace;white-space:pre;overflow-x:auto;color:#2c3a66}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:10px}.cards .card{margin:0}
+.stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.chip{display:flex;align-items:center;gap:6px;background:#f4f6fd;border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:.76rem;font-weight:600}
+.chip .dot{width:8px;height:8px;border-radius:50%;margin:0;padding:0}
+/* ── 4. DÉMO GUIDÉE : Utiliser → Valider → Attribuer ── */
+.demo{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--sh);overflow:hidden}
+.dtabs{display:grid;grid-template-columns:repeat(3,1fr);background:#f3f6fd;border-bottom:1px solid var(--line)}
+.dt{border:0;background:transparent;padding:14px 10px;font:700 .86rem inherit;font-family:inherit;color:var(--mut);cursor:pointer;border-bottom:3px solid transparent;transition:.2s}
+.dt i{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#dfe6f7;color:var(--mut);margin-right:6px;font-size:.75rem}
+.dt small{display:block;font-weight:500;font-size:.7rem}.dt.on{background:#fff;color:var(--ink);border-bottom-color:var(--blue)}.dt.on i{background:var(--blue);color:#fff}.dt.ok i{background:var(--grn);color:#fff}
+.dp{padding:20px}.dp[hidden]{display:none}.how{background:#eef3ff;border-radius:12px;padding:10px 14px;font-size:.8rem;color:#33427a;margin-bottom:14px}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:8px;margin-bottom:14px}
+.sc{border:1px solid var(--line);border-radius:12px;padding:8px;text-align:center;font-size:.7rem;font-weight:600;color:var(--mut);transition:.3s;background:#fafbff}.sc span{display:block;font-size:1.3rem}
+.sc.act{border-color:var(--blue);background:#eaf0ff;color:var(--blue);transform:translateY(-3px);box-shadow:0 6px 16px rgba(79,124,255,.2)}.sc.done{border-color:#9fe3c5;background:#effaf5;color:#128a5a}
+.io{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:14px}
+.io div{background:#f7f9ff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:.76rem}.io b{display:block;font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;color:var(--vio);margin-bottom:2px}
+.ck{border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:8px;font-size:.78rem}.ck.ok{border-color:#9fe3c5;background:#f4fcf8}
+.ckh{display:flex;justify-content:space-between;font-weight:700}.ckh em{font-style:normal;font-size:.7rem;color:var(--mut)}.ck.ok em{color:#128a5a}.ck ul{list-style:none;padding:0;color:var(--mut);margin-top:4px}.ck li.p{color:#128a5a}
+.sum{text-align:center;font-weight:800;padding:12px;border-radius:12px;background:#eef2ff;color:var(--blue)}.sum.ok{background:#e3f8ee;color:#128a5a}
+.chain{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch;margin:10px 0}.chain div{flex:1 1 120px;background:#f7f9ff;border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:.72rem;font-weight:700}
+.chain small{display:block;font:500 .66rem 'JetBrains Mono',monospace;color:var(--mut);word-break:break-all}.chain span{align-self:center;color:var(--blue);font-weight:800}
+.rb{display:grid;grid-template-columns:150px 1fr 40px;gap:8px;align-items:center;font:.68rem 'JetBrains Mono',monospace;margin:4px 0}.rb .bar i{background:linear-gradient(90deg,var(--vio),var(--blue))}
+.warn{background:#fff7e8;color:#b36200;border-radius:10px;padding:8px 12px;font-size:.76rem;margin-top:8px}.good{background:#e3f8ee;color:#128a5a;border-radius:10px;padding:8px 12px;font-size:.76rem;margin-top:8px}
+@media(max-width:600px){.dt small{display:none}.rb{grid-template-columns:90px 1fr 36px}}
+</style>
+</head>
+<body>
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav id="nav">
+<a href="#ctx">Contexte</a><a href="#global">Pipeline global</a><a href="#lb">Legal Brain</a><a href="#rag">RAG &amp; démo</a><a href="#hv">Hannibal</a><a href="#arch">Architecture</a><a href="#time">Chronologie</a><a href="#bilan">Bilan</a>
+</nav>
+
+<!-- ═══════════ EN-TÊTE ═══════════ -->
+<div class="hero">
+<span class="pill">🏛️ E-Tafakna · Stage IA &amp; Data Science · Été 2026</span>
+<h1>Du texte de loi brut à une <span>IA juridique qui cite ses sources</span></h1>
+<p>Un projet, deux volets : <b>Legal Brain - RAG</b> (veille juridique multi-pays + RAG avec citations vérifiables) et <b>Hannibal - Fine-Tuning</b> (corpus de fine-tuning contractuel FR / EN / AR).</p>
+<div class="meta">
+<div>👩‍🎓 Ingénieure : <b>Labiadh Lina</b></div><div>🏫 <b>iTeam University</b></div><div>🏢 <b>E-Tafakna</b> · Ariana, Tunisie</div><div>👩‍🏫 Encadrante : <b>Dhikra Ben Mahmoud</b></div><div>📅 Dates : <b>15 juin → 15 août 2026</b></div><div>🎓 Soutenance : <b>28 oct. 2026</b></div>
+<div><span class="badge">⚖️ LegalTech · 🌍 14 pays · 🇫🇷 FR / 🇺🇸 EN / 🇸🇦 AR</span></div>
+</div>
+</div>
+
+<!-- ═══════════ CONTENU ═══════════ -->
+<main>
+    
+
+<!-- ═══════════ SECTION 1 · CONTEXTE ═══════════ -->
+<section id="ctx">
+<div class="eyebrow">01 · Contexte</div><h2>Pourquoi ce stage ?</h2>
+<p class="lead">Suivre l’évolution des lois de 14 pays à la main est lent, coûteux et source d’erreurs. L’objectif : automatiser la collecte, structurer le droit et construire les fondations d’une IA fiable.</p>
+<div class="quote">❝ E-Tafakna construit un <b>AI Legal Operating System</b> pour 14 pays. Une IA juridique qui hallucine une loi est un risque légal grave. Ce stage a posé les <b>fondations documentaires</b> qui évitent ce risque : données structurées, sources officielles, citations vérifiables. ❞<small>Fil rouge : « Le modèle ne doit jamais inventer le droit. »</small></div>
+<div class="grid g3" style="margin-top:18px">
+<div class="card lift"><div style="font-size:1.6rem">🔭</div><h3 style="margin:6px 0">Centraliser &amp; veiller</h3><p class="lead" style="margin:0">Surveiller automatiquement journaux officiels et décrets (MENA + Europe), sans intervention humaine.</p></div>
+<div class="card lift"><div style="font-size:1.6rem">🧩</div><h3 style="margin:6px 0">Rendre l’information intelligente</h3><p class="lead" style="margin:0">PDF bruts ou scannés → articles JSON nettoyés, enrichis (résumés, sanctions, obligations).</p></div>
+<div class="card lift"><div style="font-size:1.6rem">💬</div><h3 style="margin:6px 0">Alimenter un RAG</h3><p class="lead" style="margin:0">Questions en langage naturel → réponses sourcées, à jour, avec articles cités.</p></div>
+</div>
+<div class="grid g4" style="margin-top:18px" id="kpis"></div>
+</section>
+
+<!-- ═══════════ SECTION 2 · PIPELINE GLOBAL ═══════════ -->
+<section id="global">
+<div class="eyebrow">02 · Vue d’ensemble</div><h2>Le pipeline global des deux volets</h2>
+<div class="sec-title">🗺️ — 1 Projet, 2 Volets</div>
+<div class="sec-sub">Fil rouge commun : « Le modèle ne doit jamais inventer le droit. »</div>
+<p class="lead">Deux chaînes de données parallèles, un même objectif : un LLM juridique ancré dans des sources officielles et des données contractuelles propres.</p>
+<div class="lane"><div class="lane-h"><i style="background:var(--blue)">VOLET 1</i>🧠 Legal Brain — de la source officielle à la réponse citée</div><div class="steps" id="laneA"></div></div>
+<div class="lane"><div class="lane-h"><i style="background:var(--org)">VOLET 2</i>🤖 Hannibal  — de 1 284 fichiers à 519 exemples de fine-tuning</div><div class="steps" id="laneB"></div></div>
+<div class="merge">⬇ Les deux volets convergent vers E-Tafakna : rédaction contractuelle qui cite directement l’index juridique ⬇</div>
+<div class="legend" style="margin-top:14px;justify-content:center"><span>🟢 Livré</span><span>🟠 Partiel</span><span>🔵 Démo live</span><span>⚪ Prochaine étape (hors scope)</span></div>
+</section>
+
+<!-- ═══════════ SECTION 3 · LEGAL BRAIN ═══════════ -->
+<section id="lb">
+<div class="eyebrow">03 · Volet 1</div><h2>🧠 Legal Brain — cycle documentaire de bout en bout</h2>
+<p class="lead">L’unité de traitement est <b>l’article</b>, pas le document ni un chunk arbitraire de 500 tokens. Chaque étape est déterministe, traçable et idempotente grâce aux hachages SHA-256.</p>
+
+<div class="subhead">
+<div class="sec-title">🧠 Legal Brain — Pipeline de veille juridique multi-pays</div>
+<div class="sec-sub">Collecte → Structuration → Enrichissement → RAG avec citations vérifiables</div>
+  
+<div class="metrics">
+  <div class="metric"><div class="metric-val" style="color:var(--blue-accent);">29</div><div class="metric-label">Sources configurées<br/>14 pays · 3 langues</div></div>
+  <div class="metric"><div class="metric-val" style="color:var(--teal);">4</div><div class="metric-label">Stages du pipeline<br/>Discover → Index</div></div>
+  <div class="metric"><div class="metric-val" style="color:var(--green);">✅</div><div class="metric-label">Démo RAG<br/>Fonctionnelle</div></div>
+  <div class="metric"><div class="metric-val" style="color:var(--purple);">∞</div><div class="metric-label">Sources ajoutables<br/>1 adapter + 1 YAML</div></div>
+</div>
+</div>
+ 
+ <div class="flow-track">
+  
+  <div class="flow-node">
+    <div class="node-step-badge">ÉTAPE 1</div>
+    <div class="node-icon">🌐</div>
+    <div class="node-title">1. Discover &amp; Adapters</div>
+    <div class="node-desc">
+      Contrat <code>SourceAdapter</code> unifié. Détection de nouveaux textes, gestion des tokens OAuth2 (Légifrance), Akoma Ntoso XML (Italie), Scraping JORT.
+    </div>
+    <div class="node-tech">adapters/base.py · YAML</div>
+    <div class="node-status status-ready">✅ 29 sources actives</div>
+  </div>
+  <div class="flow-arrow">➔</div>
+
+  
+  <div class="flow-node">
+    <div class="node-step-badge">ÉTAPE 2</div>
+    <div class="node-icon">📥</div>
+    <div class="node-title">2. Fetch &amp; Raw Storage</div>
+    <div class="node-desc">
+      Téléchargement des octets bruts (PDF, HTML, XML). Archivage immédiat dans MinIO S3 (zone brute). Calcul du <code>content_hash_sha256</code> pour déduplication.
+    </div>
+    <div class="node-tech">MinIO · PostgreSQL</div>
+    <div class="node-status status-ready">✅ Idempotent</div>
+  </div>
+  <div class="flow-arrow">➔</div>
+
+  
+  <div class="flow-node">
+    <div class="node-step-badge">ÉTAPE 3</div>
+    <div class="node-icon">📄</div>
+    <div class="node-title">3. OCR &amp; Article Extraction</div>
+    <div class="node-desc">
+      PyMuPDF pour PDF natifs, OCR Tesseract pour scans dégradés. Découpage régex multilingue en <b>articles individuels</b> ("Article L. 1234-1", "المادة الأولى" ; Articolo 1, Artikel 1).
+    </div>
+    <div class="node-tech">Tesseract · PyMuPDF</div>
+    <div class="node-status status-ready">✅ Découpage fin</div>
+  </div>
+  <div class="flow-arrow">➔</div>
+
+  
+  <div class="flow-node">
+    <div class="node-step-badge">ÉTAPE 4</div>
+    <div class="node-icon">🧹</div>
+    <div class="node-title">4. Clean &amp; Normalization</div>
+    <div class="node-desc">
+      Nettoyage des en-têtes/pieds de page, normalisation diacritiques arabes, détection automatique de la langue (ISO-639-1) via <code>langdetect</code>.
+    </div>
+    <div class="node-tech">clean.py · langdetect</div>
+    <div class="node-status status-ready">✅ FR / EN / AR</div>
+  </div>
+  <div class="flow-arrow">➔</div>
+
+  
+  <div class="flow-node">
+    <div class="node-step-badge">ÉTAPE 5</div>
+    <div class="node-icon">✨</div>
+    <div class="node-title">5. AI Enrichment (LLM)</div>
+    <div class="node-desc">
+      Génération de résumés bilingues, domaines juridiques (Droit du travail, Fiscal...), classification et flags (has_obligations, has_penalties, deadlines).
+    </div>
+    <div class="node-tech">Groq (Llama-3.3) / vLLM</div>
+    <div class="node-status status-ready">✅ Schéma Pydantic</div>
+  </div>
+  <div class="flow-arrow">➔</div>
+
+  
+  <div class="flow-node">
+    <div class="node-step-badge">ÉTAPE 6</div>
+    <div class="node-icon">📐</div>
+    <div class="node-title">6. Embeddings Vectoriels</div>
+    <div class="node-desc">
+      Vectorisation sémantique de l'article enrichi. BGE-M3 (1024 dimensions) ou text-embedding-3-large (3072 dim). Représentation dense multilingue.
+    </div>
+    <div class="node-tech">Jina AI · BGE-M3</div>
+    <div class="node-status status-ready">✅ 1024d dense</div>
+  </div>
+  <div class="flow-arrow">➔</div>
+
+  
+  <div class="flow-node">
+    <div class="node-step-badge">ÉTAPE 7</div>
+    <div class="node-icon">🔍</div>
+    <div class="node-title">7. Indexation Hybride</div>
+    <div class="node-desc">
+      Indexation dans Azure AI Search (prod) et In-Memory Hybrid (démo locale). Combinaison recherche lexicale BM25 + Cosinus vectoriel.
+    </div>
+    <div class="node-tech">Azure AI Search / In-Mem</div>
+    <div class="node-status status-rag">✅ Prêt pour RAG</div>
+  </div>
+</div>
+
+<h3>🔌 Ma contribution clé : le protocole Source Adapter extensible</h3>
+<div class="grid g2">
+<pre><span class="k">class</span> <span class="f">SourceAdapter</span>(Protocol):
+    source_id: <span class="k">str</span>   <span class="c"># ex. "fr-legifrance"</span>
+    <span class="k">def</span> <span class="f">discover</span>(self) -&gt; list[<span class="k">str</span>]: ...
+        <span class="c"># références disponibles</span>
+    <span class="k">def</span> <span class="f">has_changed</span>(self, ref) -&gt; <span class="k">bool</span>: ...
+        <span class="c"># nouveau / modifié (SHA-256)</span>
+    <span class="k">def</span> <span class="f">fetch</span>(self, ref) -&gt; RawDocument: ...
+        <span class="c"># octets bruts + métadonnées</span>
+    <span class="k">def</span> <span class="f">extract</span>(self, raw) -&gt; ExtractedText: ...
+        <span class="c"># texte article par article</span>
+
+<span class="c"># Ajouter la Belgique = 1 YAML + 1 adapter</span>
+<span class="c"># config/sources/be-moniteur.yaml → factory.py</span>
+<span class="c"># pipeline central inchangé</span></pre>
+<pre>{
+  <span class="s">"article_id"</span>: <span class="s">"fr-legifrance-art-L1234-1"</span>,
+  <span class="s">"parent_document_id"</span>: <span class="s">"fr-code-du-travail-2026"</span>,
+  <span class="s">"country_code"</span>: <span class="s">"FR"</span>, <span class="s">"article_number"</span>: <span class="s">"L1234-1"</span>,
+  <span class="s">"title"</span>: <span class="s">"Préavis de licenciement et ancienneté"</span>,
+  <span class="s">"summary"</span>: <span class="s">"Fixe les conditions de préavis…"</span>,
+  <span class="s">"legal_domains"</span>: [<span class="s">"Droit du travail"</span>],
+  <span class="s">"has_obligations"</span>: <span class="k">true</span>, <span class="s">"has_penalties"</span>: <span class="k">false</span>,
+  <span class="s">"has_deadlines"</span>: <span class="k">true</span>,
+  <span class="s">"publication_date"</span>: <span class="s">"2026-01-15"</span>,
+  <span class="s">"vector_dimensions"</span>: 1024,
+  <span class="s">"content_hash_sha256"</span>: <span class="s">"8f4b23c9…a10e"</span>
+}</pre>
+</div>
+
+<h3>🛠️ Les 4 contributions livrées</h3>
+<div class="grid g4" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+<div class="card lift"><div style="font-size:1.5rem">🔌</div><b>SourceAdapter + YAML</b><p class="lead" style="margin:4px 0 0;font-size:.8rem">1 pays = 1 adapter + 1 config, zéro modification du cœur.</p><div class="card-body">
+  Chaque source implémente le même contrat :
+  <strong>discover()</strong> → <strong>has_changed()</strong> → <strong>fetch()</strong> → <strong>extract()</strong>.
+  Configuration en YAML par source. Ajouter un pays = créer 1 adapter + 1 YAML.
+  Zéro modification du pipeline central.
+</div><div class="card-tags">
+  <span class="tag">Python Protocol</span>
+  <span class="tag">YAML config</span>
+  <span class="tag g">✅ Livré</span>
+</div></div>
+<div class="card lift"><div style="font-size:1.5rem">💬</div><b>/chat RAG citable</b><p class="lead" style="margin:4px 0 0;font-size:.8rem">Recherche hybride + <code>cited_article_ids</code> vérifiables.</p><div class="card-body">
+  Top-k articles récupérés par recherche hybride (vectorielle + BM25).
+  Réponse LLM + <code>cited_article_ids</code> vérifiables en JSON.
+  Chaque source est traçable jusqu'au texte officiel.
+</div>
+<div class="card-tags">
+  <span class="tag">FastAPI</span>
+  <span class="tag">Azure AI Search</span>
+  <span class="tag g">✅ Livré</span>
+</div></div>
+<div class="card lift"><div style="font-size:1.5rem">🖥️</div><b>Console React / Vite</b><p class="lead" style="margin:4px 0 0;font-size:.8rem">Lancer un run, suivre les étapes, voir les 29 sources.</p><div class="card-body">
+  Interface frontend pour piloter le pipeline depuis le navigateur.
+  Lancer un run, suivre les étapes en temps réel, visualiser les 29 sources actives.
+  Accessible sur <code>localhost:5173</code>.
+</div>
+<div class="card-tags">
+  <span class="tag p">React</span>
+  <span class="tag p">Vite</span>
+  <span class="tag g">✅ Livré</span>
+</div></div>
+<div class="card lift"><div style="font-size:1.5rem">🔔</div><b>Robustesse &amp; alertes</b><p class="lead" style="margin:4px 0 0;font-size:.8rem">Telegram / WhatsApp, reprise après échec, mode fixtures offline.</p> <div class="card-body">
+  Notifications Telegram / WhatsApp à chaque événement pipeline.
+  Continuité si un document échoue (le lot ne s'arrête pas).
+  Mode fixtures offline pour démo sans accès cloud.
+</div>
+<div class="card-tags">
+  <span class="tag">Telegram</span>
+  <span class="tag">WhatsApp</span>
+  <span class="tag">Fixtures offline</span>
+  <span class="tag g">✅ Livré</span>
+</div></div>
+</div>
+
+ 
+ <div class="card" style="margin-top:20px;">
+  <div class="card-header">
+    <div class="card-title"><span>🏗️</span> Schéma Canonique de l'Article (SPEC §9.1)</div>
+    <span class="status-ready">Pydantic v2 Schema</span>
+  </div>
+  <div class="rag-grid">
+    <div>
+      <p style="font-size:0.83rem; color:var(--text-sec); margin-bottom:12px;">
+        Contrairement aux approches RAG naïves qui découpent des documents en morceaux arbitraires de 500 tokens ("chunking aveugle"), <b>Legal Brain respecte l'unité de droit</b> :
+      </p>
+      <ul style="font-size:0.8rem; color:var(--text-sec); padding-left:18px; line-height:1.7;">
+        <li><b>Identifiant déterministe unique :</b> ex. <code>fr-legifrance-art-L1234-1</code></li>
+        <li><b>Lien hiérarchique :</b> Relié au <code>parent_document_id</code> (Loi n°...), chapitre et section.</li>
+        <li><b>Drapeaux juridiques booléens :</b> <code>has_obligations</code>, <code>has_penalties</code>, <code>has_deadlines</code>.</li>
+        <li><b>Traçabilité certifiée :</b> <code>content_hash_sha256</code> pour garantir l'absence d'altération.</li>
+      </ul>
+    </div>
+    <div class="code-viewer">
+{
+"article_id": "fr-legifrance-art-L1234-1",
+"parent_document_id": "fr-code-du-travail-2026",
+"article_number": "L1234-1",
+"title": "Préavis de licenciement et ancienneté",
+"content": "Lorsque le licenciement n'est pas motivé par une faute grave...",
+"summary": "Fixe les conditions de préavis selon l'ancienneté du salarié.",
+"legal_domains": ["Droit du travail", "Rupture de contrat"],
+"has_obligations": true,
+"has_penalties": false,
+"embedding_dim": 1024,
+"content_hash_sha256": "8f4b23c9...a10e"
+}
+    </div>
+  </div>
+</div>
+ 
+<h3>🌍 Couverture : 29 sources · 14 pays · FR / EN / AR</h3>
+<div class="grid g4" id="geo"></div>
+</section>
+
+<!-- ═══════════ SECTION 4 · RAG & DÉMO ═══════════ -->
+<section id="rag">
+<div class="eyebrow">04 · Recherche &amp; démo</div><h2>💬 RAG avec citations vérifiables</h2>
+<p class="lead">L’API <code>/chat</code> lie chaque affirmation à son article source. Essayez le simulateur d’ingestion et le chat ci-dessous (données de démonstration scriptées, pas de LLM en direct).</p>
+
+<div class="subhead">
+  <div class="section-head">
+    <h2>💬 Pipeline RAG : Recherche Hybride &amp; Citations Vérifiables</h2>
+    <p>Comment l'API <code>/chat</code> garantit qu'aucune réponse juridique n'est inventée en liant chaque assertion à son article source.</p>
+  </div>
+
+  <div class="rag-grid">
+    
+    <div>
+      <div class="rag-step-box">
+        <div class="rag-step-title"><span>1. Question &amp; Extraction d'Entités</span> <span style="color:var(--blue-accent);">Query Engine</span></div>
+        <div class="rag-step-desc">
+          L'utilisateur soumet sa question. Le système génère simultanément le vecteur de requête (dense embedding via Jina AI / BGE-M3) et extrait les mots-clés juridiques pour la recherche lexicale.
+        </div>
+      </div>
+
+      <div class="rag-step-box purple">
+        <div class="rag-step-title"><span>2. Recherche Hybride (BM25 + Cosinus)</span> <span style="color:var(--purple);">Hybrid Retriever</span></div>
+        <div class="rag-step-desc">
+          Exécution en parallèle :
+          <br>• <b>Recherche vectorielle :</b> Capture la sémantique et les synonymes juridiques.
+          <br>• <b>Recherche BM25 :</b> Assure le matching exact des termes légaux et numéros d'articles.
+          <br>Fusion des scores par <b>Reciprocal Rank Fusion (RRF)</b> pour extraire les Top-5 articles.
+        </div>
+      </div>
+
+      <div class="rag-step-box gold">
+        <div class="rag-step-title"><span>3. Prompt Augmenté &amp; Garde-Fou</span> <span style="color:var(--gold);">Strict Grounding</span></div>
+        <div class="rag-step-desc">
+          Le contexte injecté dans le LLM contient <b>uniquement</b> les extraits des articles officiels sélectionnés, avec une consigne stricte : <i>"Tu es un juriste certifié. Si la réponse n'est pas dans les articles fournis, dis que tu ne sais pas. Cite systématiquement l'article_id."</i>
+        </div>
+      </div>
+
+      <div class="rag-step-box green">
+        <div class="rag-step-title"><span>4. Synthèse avec 'cited_article_ids'</span> <span style="color:var(--green);">Output Certifié</span></div>
+        <div class="rag-step-desc">
+          Le modèle génère une réponse claire et retourne dans le payload JSON la liste <code>cited_article_ids</code>. L'utilisateur peut cliquer pour inspecter le texte de loi original dans son contexte officiel.
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><span>🔄</span> Flux RAG E-Tafakna en Action</div>
+        <span class="status-ready">Zero Hallucination</span>
+      </div>
+      <div class="flowbox">
+        <div style="color:var(--blue-accent); font-weight:700;">[Utilisateur] : "Quel est le préavis légal de démission ?"</div>
+        <div style="color:var(--text-muted); padding-left:14px;">↓ Vectorisation + Mots-clés</div>
+        <div style="color:var(--purple); font-weight:700;">[Azure / In-Memory Search] :</div>
+        <div style="color:var(--text-sec); padding-left:14px; font-family:monospace; font-size:0.75rem;">
+          Score 0.94 → fr-legifrance-art-L1237-1<br>
+          Score 0.88 → fr-legifrance-art-L1234-1
+        </div>
+        <div style="color:var(--text-muted); padding-left:14px;">↓ Assemblage du contexte juridique</div>
+        <div style="color:var(--gold); font-weight:700;">[LLM Groq / Qwen] :</div>
+        <div style="color:var(--text-sec); padding-left:14px;">Raisonnement sous contrainte de fidélité documentaire</div>
+        <div style="color:var(--text-muted); padding-left:14px;">↓ Réponse avec métadonnées</div>
+        <div style="color:var(--green); font-weight:700;">[Sortie API /chat] :</div>
+        <div class="outbox">
+          {<br>
+          &nbsp;&nbsp;"answer": "L'existence et la durée du préavis sont fixées par la convention ou accord collectif...",<br>
+          &nbsp;&nbsp;<b>"cited_article_ids": ["fr-legifrance-art-L1237-1"]</b>,<br>
+          &nbsp;&nbsp;"confidence_score": 0.98<br>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>🎬 Démo guidée en 3 temps : Utiliser → Valider → Attribuer</h3>
+<div class="demo">
+ <div class="dtabs">
+  <button class="dt on" onclick="tab(0)"><i>1</i>Utiliser<small>lancer le pipeline</small></button>
+  <button class="dt" onclick="tab(1)"><i>2</i>Valider<small>contrôles par étape</small></button>
+  <button class="dt" onclick="tab(2)"><i>3</i>Attribuer<small>interroger &amp; tracer la source</small></button>
+ </div>
+
+ <div class="dp" id="dp0">
+  <div class="how"><b>Utiliser :</b> on déclenche une ingestion sur la source <code>fr-legifrance</code> (fixtures offline). Chaque étape s’allume et montre ce qu’elle reçoit, ce qu’elle fait et ce qu’elle produit.</div>
+  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px"><button class="btn" id="run" onclick="runSim()">▶ Lancer l’ingestion démo</button><button class="btn o" onclick="clr()">↺ Réinitialiser</button><span class="tag demo" id="pst" style="margin:0">En attente</span><button class="btn g" id="nx" onclick="tab(1)" hidden>Voir la validation →</button></div>
+  <div class="sgrid" id="sgrid"></div>
+  <div class="io" id="io"><div><b>Entrée</b>—</div><div><b>Traitement</b>—</div><div><b>Sortie</b>—</div></div>
+  <div class="term" id="term">$ Prêt. Cliquez sur « Lancer l’ingestion démo ».</div>
+  <div style="display:flex;justify-content:space-between;font-size:.74rem;color:var(--mut);margin:12px 0 5px"><span id="lbl">Pipeline inactif</span><span id="pct">0%</span></div>
+  <div class="bar"><i id="pb" style="width:0"></i></div>
+ </div>
+
+ <div class="dp" id="dp1" hidden>
+  <div class="how"><b>Valider :</b> aucune étape n’est « crue sur parole ». Chacune passe des contrôles automatiques (hash, schéma, langue, dimension, index). Ils se cochent au fil de l’exécution.</div>
+  <div id="ckl"></div><div class="sum" id="sum">Lancez d’abord le pipeline (① Utiliser).</div>
+  <p style="font-size:.7rem;color:var(--mut);margin-top:8px">Résultats issus de la fixture de démonstration, non d’une exécution cloud.</p>
+ </div>
+
+ <div class="dp" id="dp2" hidden>
+  <div class="how"><b>Attribuer :</b> posez une question. Pour chaque réponse, la page montre les articles retrouvés (scores), puis la chaîne de provenance jusqu’à la source officielle. Essayez la question hors corpus : sans article pertinent, pas de réponse.</div>
+  <div class="grid g2">
+   <div><div class="card-header"><div class="card-title"><span>💬</span> Moteur RAG avec Traçabilité /chat</div><span class="status-rag">Hybrid Search (BM25 + 1024d)</span></div>
+    <div class="chat"><div class="msgs" id="msgs"><div class="m mb">Bonjour ! Posez une question de droit du travail ou de contrats. Chaque réponse cite ses articles officiels 📜</div></div>
+     <div class="qs"><span onclick="ask(0)">⚖️ Rupture de contrat</span><span onclick="ask(1)">⏳ Période d’essai</span><span onclick="ask(2)">🔒 Confidentialité IT</span><span onclick="ask(3)">📝 Préavis de démission</span><span onclick="ask(4)">🚫 Hors corpus</span></div>
+     <div class="inp"><input id="ci" placeholder="Votre question…" onkeydown="if(event.key==='Enter')send()"><button class="btn g" onclick="send()">Envoyer</button></div></div></div>
+   <div class="card" style="box-shadow:none"><b>🔎 Retrouvé &amp; attribué</b><div id="attr" style="margin-top:10px;font-size:.78rem;color:var(--mut)">Posez une question pour voir les articles retrouvés et leur provenance.</div></div>
+  </div>
+ </div>
+</div>
+</section>
+
+    
+
+<!-- ═══════════ SECTION 5 · HANNIBAL  ═══════════ -->
+<section id="hv">
+<div class="eyebrow">05 · Volet 2</div><h2>🤖 Hannibal  — préparation des données de fine-tuning</h2>
+<p class="lead">Entonnoir de qualification : de documents hétérogènes à des paires Alpaca prêtes pour le fine-tuning d’un petit modèle de rédaction contractuelle.</p>
+<div class="section-head">
+  <h2>🤖 : Chaîne de Préparation des Données</h2>
+  <p>Entonnoir de qualification : de 1 284 documents hétérogènes à 519 paires de fine-tuning Alpaca pour le moteur de génération contractuelle.</p>
+</div>
+
+<div class="grid g2">
+<div class="card">
+<b>📉 Entonnoir de filtrage</b>
+<div style="margin-top:14px">
+<div class="fun" style="background:linear-gradient(90deg,#ff9a3c,#ffb866)"><div><b style="font-size:1rem">1 284 fichiers bruts</b><br><small>PDF · DOCX · DOC · 14 pays</small></div><b>100%</b></div>
+<div class="loss">✖ −301 échecs d’extraction (.doc corrompus, PDF invalides)<br>✖ −82 rejets QA (formulaires, textes trop courts)<br>✖ −3 doublons SHA-256 · ➕ re-labellisation manuelle</div>
+<div class="fun" style="background:linear-gradient(90deg,#4f7cff,#7b9bff);width:88%"><div><b style="font-size:1rem">982 contrats valides</b><br><small>EN 616 · FR 196 · AR 170</small></div><b>76,5%</b></div>
+<div class="loss" style="background:#fff7e8;color:#b36200">🧹 Anonymisation PII · 🔬 36 suspects isolés · ⚖️ 40 → juristes (en attente)<br>🎯 Équilibrage seed=42 → 375 exemples de base</div>
+<div class="fun" style="background:linear-gradient(90deg,#1fb97f,#56d9a5);width:66%"><div><b style="font-size:1rem">519 exemples JSONL</b><br><small>Train 87% (451) · Val 13% (68)</small></div><b>✅</b></div>
+</div></div>
+<div class="card">
+<b>📦 Les 4 datasets spécialisés</b>
+<table style="margin-top:8px"><thead><tr><th>Dataset</th><th>Capacité</th><th>Ex.</th></tr></thead><tbody>
+<tr><td><span class="dot" style="background:var(--blue)">A</span>Intent → Blueprint</td><td>Besoin client → plan de contrat  <div style="font-size:0.75rem; color:var(--text-sec);">Transformation d'un besoin client informel en un plan de contrat juridique complet.</div>
+</td><td><b>20</b></td></tr>  
+<tr><td><span class="dot" style="background:var(--vio)">B</span>Blueprint → Clauses</td><td>Plan → clauses structurées             <div style="font-size:0.75rem; color:var(--text-sec);">Génération de clauses structurées cohérentes à partir du blueprint établi.</div>
+</td><td><b>30</b></td></tr>
+<tr><td><span class="dot" style="background:var(--org)">C</span>Clause → Rédaction</td><td>Intention → texte juridique             <div style="font-size:0.75rem; color:var(--text-sec);">Rédaction experte de clauses spécifiques (Confidentialité, Non-concurrence, RGPD, Juridiction).</div>
+</td><td><b>75</b></td></tr>
+<tr><td><span class="dot" style="background:var(--red)">D</span>Contrat → Risques</td><td>Critique + risques détectés             <div style="font-size:0.75rem; color:var(--text-sec);">Critique juridique d'un contrat soumis et détection des clauses déséquilibrées ou risquées.</div>
+</td><td><b>19</b></td></tr>
+<tr><td colspan="2"><b>Base équilibrée 375 + 144 (A–D) = total livré</b></td><td><b style="color:var(--grn)">519</b></td></tr></tbody></table>
+</div></div>
+
+<div class="grid g2" style="margin-top:16px">
+<pre>{
+  <span class="s">"instruction"</span>: <span class="s">"Génère une clause de confidentialité pour un contrat de prestation IT en France."</span> ,
+  <span class="s">"input"</span>: <span class="s">"Parties: [PLACEHOLDER] · Durée: [DATE] → [DATE]"</span>,
+  <span class="s">"output"</span>: <span class="s">"Article X — Confidentialité…"</span>
+}  <span class="c"># format Alpaca JSONL</span></pre>
+<div class="card"><b>🔒 Anonymisation PII</b>
+<div class="tl" style="margin-top:10px;font-family:'JetBrains Mono',monospace"><div><code>Jean Dupont</code> → <code>[PLACEHOLDER]</code></div><div><code>01/03/2025</code> → <code>[DATE]</code></div><div><code>+216 12 345 678</code> → <code>[PHONE]</code></div><div><code>contact@acme.tn</code> → <code>[EMAIL]</code></div></div></div>
+</div>
+</section>
+
+   
+
+<!-- ═══════════ SECTION 6 · ARCHITECTURE & STACK ═══════════ -->
+<section id="arch">
+<div class="eyebrow">06 · Architecture &amp; stack</div><h2>🏗️ Séparation des responsabilités</h2>
+<p class="lead">Les octets bruts confidentiels restent dans la zone de calcul ; seul le texte extrait et les vecteurs partent vers l’index de recherche.</p>
+<div class="grid g3">
+<div class="card" style="border-top:4px solid var(--teal)"><b>🖥️ OVH Compute</b><p class="lead" style="font-size:.8rem;margin:6px 0 0">Scrapers, OCR Tesseract, déduplication, LLM auto-hébergés (vLLM / Ollama). Les PDF bruts n’en sortent jamais.</p></div>
+<div class="card" style="border-top:4px solid var(--vio)"><b>🐘 PostgreSQL + MinIO</b><p class="lead" style="font-size:.8rem;margin:6px 0 0">Système de référence : versions, horodatage, hashes SHA-256, archives brutes S3.</p></div>
+<div class="card" style="border-top:4px solid var(--blue)"><b>🔍 Azure AI Search</b><p class="lead" style="font-size:.8rem;margin:6px 0 0">Modèle de lecture dérivé : texte d’articles + vecteurs, recherche hybride avec filtres pays / date / domaine.</p></div>
+</div>
+
+<h3>🧰 Stack technologique</h3>
+
+<div class="cards">
+  <div class="card" style="border-color:rgba(37,99,235,.4);">
+    <div class="card-icon">🐍</div>
+    <div class="card-title">Backend — Legal Brain</div>
+    <div class="stack">
+      <div class="chip"><span class="dot" style="background:#3b82f6;"></span>Python 3.11</div>
+      <div class="chip"><span class="dot" style="background:#22c55e;"></span>FastAPI</div>
+      <div class="chip"><span class="dot" style="background:#f59e0b;"></span>Dagster</div>
+      <div class="chip"><span class="dot" style="background:#06b6d4;"></span>SQLAlchemy</div>
+      <div class="chip"><span class="dot" style="background:#6366f1;"></span>Alembic</div>
+      <div class="chip"><span class="dot" style="background:#8b5cf6;"></span>Pydantic v2</div>
+      <div class="chip"><span class="dot" style="background:#0ea5e9;"></span>Playwright · BeautifulSoup</div>
+      <div class="chip"><span class="dot" style="background:#229ed9;"></span>Telegram Bot API</div>
+    </div>
+  </div>
+
+  <div class="card" style="border-color:rgba(139,92,246,.4);">
+    <div class="card-icon">🖥️</div>
+    <div class="card-title">Frontend Console</div>
+    <div class="stack">
+      <div class="chip"><span class="dot" style="background:#61dafb;"></span>React 18</div>
+      <div class="chip"><span class="dot" style="background:#fbbf24;"></span>Vite 5</div>
+      <div class="chip"><span class="dot" style="background:#06b6d4;"></span>TypeScript</div>
+      <div class="chip"><span class="dot" style="background:#6366f1;"></span>Tailwind CSS</div>
+    </div>
+  </div>
+
+  <div class="card" style="border-color:rgba(34,197,94,.4);">
+    <div class="card-icon">☁️</div>
+    <div class="card-title">Infrastructure &amp; Cloud</div>
+    <div class="stack">
+      <div class="chip"><span class="dot" style="background:#2496ed;"></span>Docker Compose</div>
+      <div class="chip"><span class="dot" style="background:#336791;"></span>PostgreSQL</div>
+      <div class="chip"><span class="dot" style="background:#c72c48;"></span>MinIO</div>
+      <div class="chip"><span class="dot" style="background:#00adef;"></span>OVH Compute</div>
+      <div class="chip"><span class="dot" style="background:#0078d4;"></span>Azure AI Search</div>
+    </div>
+  </div>
+
+  <div class="card" style="border-color:rgba(245,158,11,.4);">
+    <div class="card-icon">📄</div>
+    <div class="card-title">OCR &amp; Extraction texte</div>
+    <div class="stack">
+      <div class="chip"><span class="dot" style="background:#ef4444;"></span>PyMuPDF</div>
+      <div class="chip"><span class="dot" style="background:#f59e0b;"></span>Tesseract OCR</div>
+      <div class="chip"><span class="dot" style="background:#22c55e;"></span>pdfplumber</div>
+      <div class="chip"><span class="dot" style="background:#8b5cf6;"></span>python-docx</div>
+      <div class="chip"><span class="dot" style="background:#06b6d4;"></span>langdetect</div>
+    </div>
+  </div>
+
+  <div class="card" style="border-color:rgba(236,72,153,.4);">
+    <div class="card-icon">🤖</div>
+    <div class="card-title">LLM &amp; IA</div>
+    <div class="stack">
+      <div class="chip"><span class="dot" style="background:#f97316;"></span>Groq API</div>
+      <div class="chip"><span class="dot" style="background:#22c55e;"></span>Ollama (fallback)</div>
+      <div class="chip"><span class="dot" style="background:#0078d4;"></span>Azure OpenAI</div>
+      <div class="chip"><span class="dot" style="background:#8b5cf6;"></span>text-embed-3-large</div>
+      <div class="chip"><span class="dot" style="background:#f59e0b;"></span>llama-3-70b</div>
+      <div class="chip"><span class="dot" style="background:#14b8a6;"></span>BGE-M3 · Jina AI (1024d)</div>
+    </div>
+  </div>
+
+  <div class="card" style="border-color:rgba(14,165,233,.4);">
+    <div class="card-icon">🧪</div>
+    <div class="card-title">Tests &amp; Qualité</div>
+    <div class="stack">
+      <div class="chip"><span class="dot" style="background:#22c55e;"></span>pytest</div>
+      <div class="chip"><span class="dot" style="background:#f59e0b;"></span>uv (pkg manager)</div>
+      <div class="chip"><span class="dot" style="background:#8b5cf6;"></span>ruff (linting)</div>
+      <div class="chip"><span class="dot" style="background:#06b6d4;"></span>mypy</div>
+      <div class="chip"><span class="dot" style="background:#ef4444;"></span>SHA-256 hashing</div>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:16px"><div class="card"><b>📈 Avancement par compétence</b><div style="margin-top:12px" id="skills"></div></div></div>
+
+<div class="card" style="margin-top:16px"><b>📂 Stockage &amp; nommage</b>
+<pre style="margin-top:10px">outputs/raw/{Pays}/{Source}/{Année}/   → PDF bruts (anti-doublon SHA-256)
+outputs/txt/  → texte extrait      outputs/json/ → articles   outputs/enriched_json/ → articles + IA
+PDF : {SOURCE}_{NUM}_{DATE}.pdf  ex. JORT_001_2025-01-03.pdf    Regex : Article 1 · Art. 1 · Articolo 1 · Artikel 1 · المادة 1</pre></div>
+</section>
+
+   
+
+<!-- ═══════════ SECTION 7 · CHRONOLOGIE ═══════════ -->
+<section id="time">
+<div class="eyebrow">07 · Chronologie</div><h2>📅 9 semaines, 2 volets en parallèle</h2>
+<p class="lead">15 juin → 15 août 2026.</p>
+<div class="card scroll"><div class="gantt" id="gantt"></div></div>
+<div class="grid g2" style="margin-top:16px">
+<div class="card"><b style="color:var(--blue)">🧠 Legal Brain</b><div class="tl" style="margin-top:12px">
+<div><i></i><span><b>S1 · Architecture</b> — codebase, domaine LegalTech, protocole SourceAdapter, Docker.</span></div>
+<div><i></i><span><b>S2-3 · Adapters</b> — fr-legifrance, jo-oja, tn-jort, eu-eurlex, YAML, tests, fixtures.</span></div>
+<div><i></i><span><b>S4 · Enrichissement</b> — LLM, embeddings, index Azure, IDs SHA-256.</span></div>
+<div><i></i><span><b>S5 · Console + /chat</b> — React/Vite, cited_article_ids, alertes Telegram/WhatsApp.</span></div>
+<div><i style="background:var(--org)"></i><span><b>S6 · Validation</b> — bout-en-bout, démo fixtures, README ; cloud OVH/Azure conditionnel.</span></div></div></div>
+<div class="card"><b style="color:var(--org)">🤖 Hannibal </b><div class="tl" style="margin-top:12px">
+<div><i></i><span><b>S1-2 · Collecte</b> — 1 284 fichiers, audit formats, classification pays/langue, doublons.</span></div>
+<div><i></i><span><b>S3-4 · Extraction + PII</b> — PyMuPDF, Tesseract, regex PII ; 301 échecs, 82 rejets.</span></div>
+<div><i></i><span><b>S5-6 · QA + équilibrage</b> — 36 suspects, 40 → juristes, 982 valides, 375 base.</span></div>
+<div><i></i><span><b>S7-8 · Génération</b> — prompts A/B/C/D, Groq + Ollama fallback, 519 exemples, split.</span></div>
+<div><i></i><span><b>S9 · Livraison</b> — README, audit datasets, rapport, passation à E-Tafakna.</span></div></div></div>
+</div>
+</section>
+   
+
+<!-- ═══════════ SECTION 8 · BILAN ═══════════ -->
+<section id="bilan">
+<div class="eyebrow">08 · Bilan</div><h2>📊 Résultats, limites &amp; perspectives</h2>
+<div class="grid g4" id="kpis2" style="margin:18px 0"></div>
+
+<div class="grid g3">
+<div class="card" style="border-top:4px solid var(--grn)"><b>🧠 Legal Brain livré</b><p class="lead" style="font-size:.8rem;margin:6px 0 8px">29 sources YAML, protocole SourceAdapter, /chat avec citations, console React, démo offline.</p><span class="tag done">✅ Livré &amp; démontrable</span></div>
+<div class="card" style="border-top:4px solid var(--grn)"><b>📦 Hannibal livré</b><p class="lead" style="font-size:.8rem;margin:6px 0 8px">519 exemples Alpaca, 4 datasets, corpus nettoyé et anonymisé, scripts d’audit, documentation.</p><span class="tag done">✅ Livré &amp; documenté</span></div>
+<div class="card" style="border-top:4px solid var(--org)"><b>⚠️ Limites assumées</b><p class="lead" style="font-size:.8rem;margin:6px 0 8px">Validations cloud OVH/Azure conditionnelles · revue PII/juridique : 76 fichiers en attente · fine-tuning non lancé · démo en mode fixtures.</p><span class="tag part">Documenté</span></div>
+</div>
+<h3>🔭 Perspectives pour E-Tafakna</h3>
+<div class="grid g3" id="persp"></div>
+<div class="quote" style="margin-top:26px">❝ Ce stage a posé deux fondations pour qu’une IA juridique soit crédible : des lois structurées et citables côté Legal Brain, des données contractuelles de qualité côté Hannibal. Le modèle ne doit pas inventer le droit — les bases documentaires le prouvent. ❞<small>— Labiadh Lina · Soutenance E-Tafakna, 28 octobre 2026</small></div>
+</section>
+</main>
+
+<!-- ═══════════ PIED DE PAGE ═══════════ -->
+<footer>Labiadh Lina · Stage E-Tafakna · IA &amp; Data Science · iTeam University · Été 2026<br>Soutenance 28.10.2026</footer>
+   
+
+<!-- ═══════════ MODALE ARTICLE ═══════════ -->
+<div class="modal" id="modal" onclick="if(event.target===this)this.classList.remove('on')"><div class="mbox" id="mb"></div></div>
+
+<!-- ═══════════ SCRIPT ═══════════ -->
+<script>
+// ── 1. DONNÉES & RENDU ──
+const $=id=>document.getElementById(id);
+const C={b:'#4f7cff',v:'#8b6cff',t:'#13b5c9',g:'#1fb97f',o:'#ff9a3c',p:'#ff6fa5',r:'#f0556a'};
+const ST={d:['done','✅ Fait'],p:['part','⏳ Partiel'],l:['demo','🎯 Démo live'],f:['todo','🔮 Futur']};
+const laneA=[['🌐','Sources officielles','29 sources · 14 pays · journaux, APIs','d','b'],['🔌','Adapters','discover → fetch → extract · YAML','d','b'],['📄','OCR + extraction','PyMuPDF · Tesseract → articles JSON','d','t'],['✨','Enrichissement LLM','résumés bilingues · domaines · SHA-256','d','v'],['🔍','Index Azure AI Search','embeddings · recherche hybride','d','t'],['💬','API /chat RAG','réponse + cited_article_ids','l','g']];
+const laneB=[['📁','1 284 fichiers bruts','PDF · DOCX · DOC · 14 pays','d','o'],['🔎','Extraction + OCR','PyMuPDF · Tesseract · pdfplumber','d','o'],['🧹','Nettoyage + PII','[PLACEHOLDER] · [DATE] · dédup SHA-256','d','o'],['🔬','Contrôle qualité','36 suspects · 40 → juristes · 982 valides','p','r'],['⚖️','Équilibrage','seed=42 · 375 base · pays/langue/type','d','v'],['🤖','Génération synthétique','Groq · Ollama fallback · Alpaca','d','p'],['📦','519 exemples JSONL','4 datasets A·B·C·D · 87/13','d','g'],['🚀','Fine-tuning SLM','Hannibal → E-Tafakna','f','f']];
+const lane=(id,a)=>$(id).innerHTML=a.map((s,i)=>`<div class="st" style="--c:${C[s[4]]||'#9aa5c4'}"><div class="n">${i+1}</div><div class="ic">${s[0]}</div><b>${s[1]}</b><p>${s[2]}</p><span class="tag ${ST[s[3]][0]}">${ST[s[3]][1]}</span></div>`).join('');
+lane('laneA',laneA);lane('laneB',laneB);
+const kp=[['29','Sources officielles',C.b],['1 284','Fichiers traités',C.o],['982','Contrats valides',C.t],['519','Exemples JSONL',C.g],['4','Datasets A·B·C·D',C.v],['14','Pays · FR/EN/AR',C.p],['2','Fondations IA juridique livrées','#f5b400']];
+const kh=a=>a.map(k=>`<div class="card stat lift"><b style="color:${k[2]}">${k[0]}</b><span>${k[1]}</span></div>`).join('');
+$('kpis').innerHTML=kh(kp.slice(0,4));$('kpis2').innerHTML=kh(kp);
+const geo=[['🇫🇷','France','Légifrance · BOFIP · Assemblée · Sénat'],['🇹🇳','Tunisie','JORT'],['🇯🇴','Jordanie','Journal officiel'],['🇸🇦','Arabie saoudite','Textes du Golfe'],['🇲🇦','Maroc','Afrique du Nord'],['🇮🇹','Italie','Gazzetta Ufficiale'],['🇩🇪','Allemagne','Bundesgesetzblatt'],['🇪🇺','Union européenne','EUR-Lex']];
+$('geo').innerHTML=geo.map(g=>`<div class="flag lift"><span>${g[0]}</span><div><b>${g[1]}</b><br><small style="color:var(--mut)">${g[2]}</small></div></div>`).join('');
+const sk=[['Pipeline ETL / Data Engineering',92,'b'],['Préparation datasets fine-tuning',90,'o'],['API backend FastAPI',88,'t'],['NLP multilingue',85,'v'],['RAG & recherche vectorielle',80,'g'],['Frontend React / Console',70,'p'],['Déploiement cloud (OVH + Azure)',55,'r']];
+$('skills').innerHTML=sk.map(s=>`<div class="pr"><div><span>${s[0]}</span><span style="color:${C[s[2]]}">${s[1]}%</span></div><div class="bar"><i style="width:${s[1]}%;background:${C[s[2]]}"></i></div></div>`).join('');
+const gb=(r,c,a,b,t,col)=>`<div class="gb" style="grid-column:${a+1}/${b+2};grid-row:${r};background:${col}">${t}</div>`;
+let g='<div></div>'+[1,2,3,4,5,6,7,8,9].map(i=>`<div class="wk">S${i}</div>`).join('');
+g+=`<div class="rl" style="grid-row:2">🧠 Legal Brain</div>`+gb(2,0,1,1,'Architecture',C.b)+gb(2,0,2,3,'Adapters',C.t)+gb(2,0,4,4,'Enrich.',C.v)+gb(2,0,5,5,'Console',C.g)+gb(2,0,6,6,'Valid.',C.o);
+g+=`<div class="rl" style="grid-row:3">🤖 Hannibal</div>`+gb(3,0,1,2,'Collecte',C.o)+gb(3,0,3,4,'Extraction + PII',C.p)+gb(3,0,5,6,'QA + équilibrage',C.r)+gb(3,0,7,8,'Génération',C.v)+gb(3,0,9,9,'Livraison',C.g);
+$('gantt').innerHTML=g;
+const ps=[['Finaliser les validations cloud OVH / Azure AI Search','Du mode fixtures à la production','b'],['Remplacer les composants mockés par des LLM de production','Enrichissement + embeddings sur volume réel','v'],['Terminer la revue PII et juridique de Hannibal','76 fichiers → juristes → corpus définitif','o'],['Lancer le fine-tuning et l’évaluation','LLaMA-Factory / Axolotl · BLEU, ROUGE, éval humaine','g'],['Relier Legal Brain ↔ Hannibal','La rédaction cite directement l’index','p'],['Graphe de citations (Neo4j)','Lier lois abrogées et jurisprudence associée','t']];
+$('persp').innerHTML=ps.map((p,i)=>`<div class="card pp lift" style="--c:${C[p[2]]}"><b class="n">${i+1}</b><div><b style="font-size:.88rem">${p[0]}</b><p class="lead" style="font-size:.76rem;margin:2px 0 0">${p[1]}</p></div></div>`).join('');
+
+// ── 2. NAVIGATION (scrollspy) ──
+const links=[...document.querySelectorAll('#nav a')];
+document.querySelectorAll('section').forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+s.id))}),{rootMargin:'-40% 0px -55% 0px'}).observe(s));
+
+// ── 3. DÉMO : ① UTILISER ──
+const STG=[
+['🌐','Discover','config/sources/fr-legifrance.yaml','SourceAdapter.discover() + has_changed()','12 nouveaux documents détectés',['Au moins 1 référence détectée','Hash différent de la version connue']],
+['📥','Fetch','12 références','fetch() → archivage MinIO + SHA-256','12 fichiers bruts archivés',['SHA-256 calculé pour 12/12','0 doublon (hash déjà connu)']],
+['📄','Extract / OCR','12 PDF / XML','PyMuPDF (ou Tesseract) + regex d’articles','42 articles découpés',['≥ 1 article par document','Numérotation « Article L… » reconnue']],
+['🧹','Clean','42 articles bruts','Retrait en-têtes/pieds, normalisation, langdetect','42 textes normalisés · langue fr',['Langue détectée = fr (ISO-639-1)','Aucun article vide']],
+['✨','Enrich (LLM)','42 textes propres','Résumé + domaines + flags (Llama 3.3 / Groq)','42 objets enrichis',['Schéma Pydantic v2 valide 42/42','Flags booléens présents']],
+['📐','Embed','42 objets enrichis','Vectorisation BGE-M3','42 vecteurs de 1024 dimensions',['Dimension = 1024 pour chaque vecteur']],
+['🔍','Index','42 vecteurs + métadonnées','Indexation hybride (BM25 + cosinus)','42 articles indexés',['Nombre indexé = 42','Requête test renvoie un résultat']]];
+let busy=false,passed=0,total=STG.reduce((a,s)=>a+s[5].length,0);
+$('sgrid').innerHTML=STG.map((s,i)=>`<div class="sc" id="sc${i}"><span>${s[0]}</span>${i+1}. ${s[1]}</div>`).join('');
+const cl=()=>$('ckl').innerHTML=STG.map((s,i)=>`<div class="ck" id="ck${i}"><div class="ckh"><span>${s[0]} ${i+1}. ${s[1]}</span><em id="cs${i}">⏳ en attente</em></div><ul>${s[5].map(c=>`<li>○ ${c}</li>`).join('')}</ul></div>`).join('');
+cl();
+function tab(i){document.querySelectorAll('.dp').forEach((p,k)=>p.hidden=k!==i);document.querySelectorAll('.dt').forEach((b,k)=>b.classList.toggle('on',k===i))}
+function runSim(){if(busy)return;clr();busy=true;$('run').disabled=true;$('pst').textContent='En cours…';$('term').textContent='';
+ let i=0;(function n(){
+  if(i>0){$('sc'+(i-1)).className='sc done';const c=$('ck'+(i-1));c.className='ck ok';$('cs'+(i-1)).textContent='✅ validé';c.querySelectorAll('li').forEach(l=>{l.className='p';l.textContent=l.textContent.replace('○','✔')});passed+=STG[i-1][5].length;$('sum').textContent='⏳ '+passed+'/'+total+' contrôles validés'}
+  if(i<STG.length){const s=STG[i],p=Math.round((i+1)/STG.length*100);$('sc'+i).className='sc act';
+   $('io').innerHTML=`<div><b>Entrée</b>${s[2]}</div><div><b>Traitement</b>${s[3]}</div><div><b>Sortie</b>${s[4]}</div>`;
+   $('pb').style.width=p+'%';$('pct').textContent=p+'%';$('lbl').textContent=(i+1)+'/7 · '+s[1];
+   const d=document.createElement('div');d.textContent='$ '+s[1].toLowerCase()+' → '+s[4];$('term').appendChild(d);$('term').scrollTop=1e5;i++;setTimeout(n,800)}
+  else{$('pst').textContent='Job réussi ✔';$('term').insertAdjacentHTML('beforeend','<div style="color:#128a5a">$ ✔ articles enregistrés (PostgreSQL + index hybride)</div>');
+   $('sum').className='sum ok';$('sum').textContent='✅ '+passed+'/'+total+' contrôles validés — pipeline conforme';document.querySelectorAll('.dt')[0].classList.add('ok');$('nx').hidden=false;busy=false;$('run').disabled=false}
+ })()}
+function clr(){if(busy)return;passed=0;cl();document.querySelectorAll('.sc').forEach(e=>e.className='sc');$('io').innerHTML='<div><b>Entrée</b>—</div><div><b>Traitement</b>—</div><div><b>Sortie</b>—</div>';
+ $('term').textContent='$ Prêt. Cliquez sur « Lancer l’ingestion démo ».';$('pb').style.width='0';$('pct').textContent='0%';$('lbl').textContent='Pipeline inactif';$('pst').textContent='En attente';
+ $('sum').className='sum';$('sum').textContent='Lancez d’abord le pipeline (① Utiliser).';$('nx').hidden=true;document.querySelectorAll('.dt')[0].classList.remove('ok')}
+
+// ── 4. DÉMO : ③ ATTRIBUER (RAG + provenance) ──
+const KB={
+'fr-legifrance-art-L1234-1':{t:'Art. L1234-1 — Préavis de licenciement',src:'Légifrance (Journal officiel)',url:'legifrance.gouv.fr',ad:'fr-legifrance',dom:'Droit du travail · Rupture · Préavis',txt:'Le salarié licencié sans faute grave a droit à un préavis dont la durée est fixée par la convention ou l’accord collectif, ou à défaut par les usages.',h:'7d89ab52…',raw:'minio://etafakna/raw/fr/…'},
+'fr-legifrance-art-L1237-1':{t:'Art. L1237-1 — Démission et préavis',src:'Légifrance (Journal officiel)',url:'legifrance.gouv.fr',ad:'fr-legifrance',dom:'Droit du travail · Démission',txt:'En cas de démission, l’existence et la durée du préavis sont fixées par la convention ou l’accord collectif de travail ou, à défaut, par les usages pratiqués dans la localité et la profession.',h:'3a9f02b8…',raw:'minio://etafakna/raw/fr/…'},
+'fr-legifrance-art-L1221-19':{t:'Art. L1221-19 — Période d’essai CDI',src:'Légifrance (Journal officiel)',url:'legifrance.gouv.fr',ad:'fr-legifrance',dom:'Droit du travail · Période d’essai',txt:'Durée maximale de la période d’essai en CDI : 2 mois (ouvriers, employés), 3 mois (agents de maîtrise, techniciens), 4 mois (cadres).',h:'e5d4c3b2…',raw:'minio://etafakna/raw/fr/…'},
+'contract-clause-confidentiality':{t:'Clause type — Confidentialité',src:'Corpus Hannibal (Dataset C)',url:'corpus interne E-Tafakna',ad:'hannibal-corpus',dom:'Prestations IT · Secret des affaires',txt:'Chaque Partie s’engage à garder strictement confidentielles les informations obtenues de l’autre pendant le contrat et cinq (5) ans après son expiration.',h:'c1a2b3d4…',raw:'corpus Alpaca (anonymisé)'}};
+const QA=[
+['Quelles sont les obligations de l’employeur lors d’une rupture de contrat ?','Hors faute grave, l’employeur doit respecter un <b>préavis</b> dont la durée dépend de la convention collective ou des usages (et de l’ancienneté).',[['fr-legifrance-art-L1234-1',.91],['fr-legifrance-art-L1237-1',.74]],['fr-legifrance-art-L1234-1']],
+['Durée maximale de la période d’essai en CDI ?','Selon l’article L1221-19 : <b>2 mois</b> (ouvriers/employés), <b>3 mois</b> (agents de maîtrise/techniciens), <b>4 mois</b> (cadres).',[['fr-legifrance-art-L1221-19',.96],['fr-legifrance-art-L1234-1',.52]],['fr-legifrance-art-L1221-19']],
+['Comment rédiger une clause de confidentialité pour une prestation IT ?','Définir les informations protégées, fixer une durée (ici 5 ans après la fin du contrat) et prévoir les sanctions en cas de divulgation.',[['contract-clause-confidentiality',.93]],['contract-clause-confidentiality']],
+['Quel est le préavis légal de démission ?','L’existence et la durée du préavis sont fixées par la convention ou accord collectif, ou à défaut par les usages.',[['fr-legifrance-art-L1237-1',.94],['fr-legifrance-art-L1234-1',.88]],['fr-legifrance-art-L1237-1']],
+['Quelle est la capitale de l’Australie ?',null,[['fr-legifrance-art-L1234-1',.31]],[]]];
+const msg=(c,h)=>{const d=document.createElement('div');d.className='m '+c;d.innerHTML=h;$('msgs').appendChild(d);$('msgs').scrollTop=1e5};
+function ask(i){ans(QA[i][0],i)}
+function send(){const t=$('ci').value.trim();if(!t)return;$('ci').value='';const l=t.toLowerCase();
+ ans(t,/démission|demission/.test(l)?3:/essai|dur[ée]e|cadre/.test(l)?1:/confidentialit|clause|\bit\b/.test(l)?2:/rupture|licenci|obligation|employeur|pr[ée]avis/.test(l)?0:4)}
+function ans(q,i){const r=QA[i];msg('mu',q);setTimeout(()=>{
+ msg('mb',r[1]?r[1]+'<div style="margin-top:8px;border-top:1px solid #e4e9f5;padding-top:6px;font-size:.7rem;color:#606b8a">Articles cités (cliquez pour inspecter) :</div>'+r[3].map(id=>`<span class="cite" onclick="openA('${id}')">📜 ${id}</span>`).join(''):'Je ne trouve aucun article officiel pertinent dans l’index : <b>je préfère ne pas répondre</b> plutôt que d’inventer.');
+ attr(r)},400)}
+function attr(r){const T=.6;
+ let h='<b style="color:var(--ink)">1 · Articles retrouvés (BM25 + cosinus → RRF)</b>'+r[2].map(s=>`<div class="rb"><span>${s[0].replace('fr-legifrance-','')}</span><div class="bar"><i style="width:${s[1]*100}%"></i></div><b>${s[1]}</b></div>`).join('')+`<div style="font-size:.68rem">Seuil de pertinence (démo) : ${T}</div>`;
+ if(!r[3].length){h+='<div class="warn">Aucun score ≥ '+T+' → aucune citation → aucune réponse. Garde-fou « zéro hallucination » actif.</div>'}
+ else{h+='<b style="color:var(--ink);display:block;margin-top:12px">2 · Chaîne de provenance</b>';
+  r[3].forEach(id=>{const a=KB[id];h+=`<div class="chain"><div>💬 Réponse<small>cited_article_ids</small></div><span>→</span><div>📜 ${a.t.split(' — ')[0]}<small>${id}</small></div><span>→</span><div>🗄️ Document brut<small>${a.raw}</small></div><span>→</span><div>🏛️ ${a.src}<small>${a.url}</small></div></div><div style="font-size:.72rem">Adapter : <code>${a.ad}</code> · SHA-256 : <code>${a.h}</code> <span class="cite" onclick="openA('${id}')">Inspecter le texte</span></div>`});
+  h+='<div class="good">✔ Chaque affirmation renvoie à un article, un hash et une source officielle (valeurs de démonstration).</div>'}
+ $('attr').innerHTML=h}
+function openA(id){const a=KB[id];$('mb').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><b>${a.t}</b><button class="btn o" onclick="$('modal').classList.remove('on')">✕</button></div><p style="font-size:.8rem;color:#606b8a;margin:10px 0">📚 ${a.src} · 🏷️ ${a.dom}</p><pre style="white-space:pre-wrap">${a.txt}</pre><p style="font-size:.72rem;color:#606b8a;margin-top:8px">Adapter <code>${a.ad}</code> · SHA-256 (extrait, démo) : <code>${a.h}</code></p>`;$('modal').classList.add('on')}
+</script>
+</body>
+</html>
