@@ -61,7 +61,7 @@ Ce dépôt correspond à la partie du projet Legal Brain portée dans le cadre d
 
 ### Dépôt associé de référence : `seifshub/legal-pipeline`
 
-[`seifshub/legal-pipeline`](https://github.com/seifshub/legal-pipeline) est un dépôt associé au pipeline Legal Brain et comparable à `Hack-ai-Legal_Brain`. Son arborescence couvre un ensemble plus large de composants du projet : adaptateurs de sources juridiques, pipeline d’ingestion et de traitement, OCR, enrichissement, stockage, recherche/RAG, API, console frontend, tests et déploiement.
+> Dépôt privé : [`seifshub/legal-pipeline`](https://github.com/seifshub/legal-pipeline) est un dépôt associé au pipeline Legal Brain et comparable à `Hack-ai-Legal_Brain`. Son arborescence couvre un ensemble plus large de composants du projet : adaptateurs de sources juridiques, pipeline d’ingestion et de traitement, OCR, enrichissement, stockage, recherche/RAG, API, console frontend, tests et déploiement.
 
 Il s’agit donc d’une base de code couvrant plusieurs parties du projet, et non uniquement les contributions personnelles présentées ici. Les dépôts sont distincts ; ce README ne revendique pas la propriété ni l’ensemble des développements du dépôt `seifshub/legal-pipeline`.
 
@@ -86,4 +86,4 @@ Les dépôts `hannibal-finetunning--V2` et `Hack-ai-Legal_Brain` sont privés. L
 
 ## Statut
 
-Projet en développement.
+Projet de Stage d'été 2026  : Terminé le développement.
