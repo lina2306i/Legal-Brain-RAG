@@ -2,7 +2,7 @@
 
 **Legal Brain RAG** est un projet orienté vers l’analyse et la compréhension de documents juridiques grâce à une approche de **RAG (Retrieval-Augmented Generation)**.
 
-Ce dépôt public présente l’écosystème du projet. Les composants techniques et les données de travail sont conservés dans les dépôts privés associés.
+Ce dépôt public présente l’écosystème du projet. Les composants techniques et les données de travail sont conservés dans les dépôts associés.
 
 ## Aperçu visuel
 
@@ -18,7 +18,7 @@ Ce dépôt public présente l’écosystème du projet. Les composants technique
 
 ## Organisation des ressources
 
-Les dossiers `docs/`, `presentation/`, `rapport/` et `assets/` sont créés. Les documents et médias existants sont encore à la racine du dépôt ; les déplacer réellement nécessite une opération de déplacement/suppression que l’outil d’écriture utilisé ici ne prend pas en charge.
+Les dossiers `docs/`, `presentation/`, `rapport/` et `assets/` sont créés. Les documents et médias existants sont encore à la racine du dépôt ; les liens ci-dessous pointent donc vers leur emplacement actuel.
 
 ### Documents et guides
 
@@ -45,38 +45,40 @@ Les dossiers `docs/`, `presentation/`, `rapport/` et `assets/` sont créés. Les
 - [Logo iTeam](logo-iteam.png)
 - [Logo E-Tafakna](logo_etafakna.png)
 
-## Écosystème du projet
+## Écosystème et périmètre des dépôts
 
-### `hannibal-finetunning--V2` — Données et fine-tuning
+### `hannibal-finetunning--V2` — Préparation des données
 
 > Dépôt privé : [`hannibal-finetunning--V2`](https://github.com/lina2306i/hannibal-finetunning--V2)
 
-Ce dépôt constitue la base de préparation des données et du fine-tuning du modèle juridique. Il contient notamment des outils de nettoyage et d’analyse de contrats, de construction et rééquilibrage de jeux de données, de génération de données synthétiques et de contrôle qualité.
+Ce dépôt regroupe des outils de nettoyage et d’analyse de contrats, de construction et de rééquilibrage de jeux de données, de génération de données synthétiques et de contrôle qualité pour le travail autour du fine-tuning.
 
-### `Hack-ai-Legal_Brain` — Application et orchestration
+### `Hack-ai-Legal_Brain` — Contribution au projet Legal Brain
 
 > Dépôt privé : [`Hack-ai-Legal_Brain`](https://github.com/lina2306i/Hack-ai-Legal_Brain)
 
-Ce dépôt héberge l’environnement applicatif expérimental de Legal Brain : ingestion de documents, recherche sémantique, orchestration RAG et interface ou API.
+Ce dépôt correspond à la partie du projet Legal Brain portée dans le cadre de ce travail. Il ne faut pas le présenter comme l’unique dépôt contenant l’intégralité du produit ou de tous les composants développés par l’équipe.
 
-## Architecture générale
+### Dépôt associé de référence : `seifshub/legal-pipeline`
+
+[`seifshub/legal-pipeline`](https://github.com/seifshub/legal-pipeline) est un dépôt associé au pipeline Legal Brain et comparable à `Hack-ai-Legal_Brain`. Son arborescence couvre un ensemble plus large de composants du projet : adaptateurs de sources juridiques, pipeline d’ingestion et de traitement, OCR, enrichissement, stockage, recherche/RAG, API, console frontend, tests et déploiement.
+
+Il s’agit donc d’une base de code couvrant plusieurs parties du projet, et non uniquement les contributions personnelles présentées ici. Les dépôts sont distincts ; ce README ne revendique pas la propriété ni l’ensemble des développements du dépôt `seifshub/legal-pipeline`.
+
+## Vue d’ensemble
 
 ```text
-Documents juridiques
+Sources et documents juridiques
         │
-        ▼
- hannibal-finetunning--V2 (privé)
- préparation des données • fine-tuning
+        ├── hannibal-finetunning--V2 (privé)
+        │     préparation des données et jeux de fine-tuning
         │
-        ▼
- Hack-ai-Legal_Brain (privé)
- ingestion • recherche • RAG • interface
-        │
-        ▼
- Réponses contextualisées et fondées sur les sources
+        └── Legal Brain / legal-pipeline
+              ingestion • extraction • enrichissement • indexation
+              API • recherche/RAG • interface • tests et déploiement
 ```
 
-## Confidentialité
+## Confidentialité et usage
 
 Les dépôts `hannibal-finetunning--V2` et `Hack-ai-Legal_Brain` sont privés. Les données juridiques, scripts internes, modèles et configurations ne sont donc pas publiés dans ce dépôt de présentation.
 
