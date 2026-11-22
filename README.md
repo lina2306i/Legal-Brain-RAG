@@ -71,7 +71,7 @@ Ce dépôt correspond à une partie du travail sur Legal Brain. Il ne représent
 
 ### `seifshub/legal-pipeline` — Dépôt associé couvrant plusieurs composants
 
-[`seifshub/legal-pipeline`](https://github.com/seifshub/legal-pipeline) est un dépôt associé et comparable à `Hack-ai-Legal_Brain`, avec un périmètre plus large. Son arborescence comprend notamment des adaptateurs de sources juridiques, des composants d’ingestion et de traitement, l’OCR, l’enrichissement, le stockage, la recherche/RAG, une API, une interface frontend, des tests et des éléments de déploiement.
+> Dépôt privé : [`seifshub/legal-pipeline`](https://github.com/seifshub/legal-pipeline) est un dépôt associé et comparable à `Hack-ai-Legal_Brain`, avec un périmètre plus large. Son arborescence comprend notamment des adaptateurs de sources juridiques, des composants d’ingestion et de traitement, l’OCR, l’enrichissement, le stockage, la recherche/RAG, une API, une interface frontend, des tests et des éléments de déploiement.
 
 Les dépôts sont distincts. Cette présentation distingue le dépôt plus large `seifshub/legal-pipeline` de la partie représentée par `Hack-ai-Legal_Brain` et ne revendique pas l’ensemble des développements du premier.
 
