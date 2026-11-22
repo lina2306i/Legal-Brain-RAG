@@ -87,3 +87,4 @@ Les dépôts `hannibal-finetunning--V2` et `Hack-ai-Legal_Brain` sont privés. L
 ## Statut
 
 Projet de Stage d'été 2026  : Terminé le développement.
+chez : E-Tafakna
